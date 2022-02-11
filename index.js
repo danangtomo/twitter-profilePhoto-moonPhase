@@ -84,8 +84,7 @@ const uploadBanner = async(imgData) => {
 
 setInterval(() => {
   getImageUrl();
-  console.log("good");
-}, 1000*60*2);
+}, 1000*60*60*24);
  
 const port = process.env.PORT || 5000;
 app.get('/', (req, res) => {
