@@ -83,14 +83,6 @@ const uploadBanner = async(files) => {
     }
 }
 
- 
-app.get('/', (req, res) => {
-  res
-    .status(200)
-    .send('server is running')
-    .end();
-});
-
 const task = cron.schedule('*/2 * * * *', () => {
   getImageUrl();
   console.log("check")
@@ -99,9 +91,13 @@ const task = cron.schedule('*/2 * * * *', () => {
   timezone: "Asia/Jakarta"
 });
  
+app.get('/', (req, res) => {
+  res
+    .status(200)
+    .send(task);
+});
+ 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
-
-  task;
 });
