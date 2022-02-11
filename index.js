@@ -3,8 +3,6 @@ dotenv.config();
 import { TwitterClient } from "twitter-api-client";
 import express from "express";
 import axios from "axios";
-import cron from "node-cron";
-import http from "http";
 
 import { ApiUrl } from './const/index.js';
 
@@ -39,7 +37,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'sketch'
+        moonStyle: 'default'
       },
       view: {
           type: 'portrait-simple'
@@ -70,11 +68,11 @@ const downloadImage = async(url) => {
     }
 }
 
-const uploadBanner = async(files) => {
+const uploadBanner = async(imgData) => {
     try {
       await twitterClient.accountsAndUsers
         .accountUpdateProfileImage({
-          image: files,
+          image: imgData,
         })
         .then(() => {
           console.log("Upload to Twitter done");
@@ -88,17 +86,9 @@ setInterval(() => {
   getImageUrl();
   console.log("good");
 }, 1000*60*2);
-
-/* http
-  .createServer(function (req, res) {
-    res.send("it is running\n");
-  })
-  .listen(process.env.PORT || 5000); */
  
 const port = process.env.PORT || 5000;
 app.get('/', (req, res) => {
   res.send('server is running');
 });
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
-});
+app.listen(port);
