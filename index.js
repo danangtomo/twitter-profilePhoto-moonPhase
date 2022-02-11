@@ -91,12 +91,16 @@ app.get('/', (req, res) => {
     .end();
 });
 
-cron.schedule('*/2 * * * *', () => {
+setInterval(() => {
+  getImageUrl();
+}, 1000*60*2)
+
+/*cron.schedule('* * * * *', () => {
   getImageUrl();
 }, {
   scheduled: true,
   timezone: "Asia/Jakarta"
-});
+}); */
  
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
