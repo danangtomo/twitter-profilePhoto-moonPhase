@@ -39,7 +39,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'default'
+        moonStyle: 'sketch'
       },
       view: {
           type: 'portrait-simple'
@@ -89,16 +89,16 @@ setInterval(() => {
   console.log("good");
 }, 1000*60*2);
 
-http
+/* http
   .createServer(function (req, res) {
     res.send("it is running\n");
   })
-  .listen(process.env.PORT || 5000);
+  .listen(process.env.PORT || 5000); */
  
-/*const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.get('/', (req, res) => {
   res.send('server is running');
 });
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
-}); */
+});
