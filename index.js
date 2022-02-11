@@ -90,15 +90,17 @@ app.get('/', (req, res) => {
     .send('server is running')
     .end();
 });
+
+const task = cron.schedule('* */2 * * * *', () => {
+  getImageUrl();
+}, {
+  scheduled: true,
+  timezone: "Asia/Jakarta"
+});
  
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 
-  cron.schedule('* */2 * * *', () => {
-    getImageUrl()
-  }, {
-    scheduled: true,
-    timezone: "Asia/Jakarta"
-  });
+  task.start();
 });
