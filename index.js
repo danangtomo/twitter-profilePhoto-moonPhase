@@ -82,15 +82,14 @@ const uploadBanner = async(files) => {
       console.log(error);
     }
 }
-
-getImageUrl();
-setInterval(() => {
-  getImageUrl();
-}, 1000*60*2);
  
 const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
   res.send('server is running');
+  setInterval(() => {
+    getImageUrl();
+    console.log("good");
+  }, 1000*60*2);
 });
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
