@@ -38,7 +38,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'default',
+        moonStyle: 'sketch',
       },
       view: {
           type: 'portrait-simple'
