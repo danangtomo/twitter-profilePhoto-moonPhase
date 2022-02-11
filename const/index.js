@@ -1,0 +1,1 @@
+export const ApiUrl = "https://astronomy.p.rapidapi.com/api/v2/studio/moon-phase";
