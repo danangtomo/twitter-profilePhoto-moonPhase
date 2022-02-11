@@ -16,5 +16,8 @@
     "dotenv": "^16.0.0",
     "node-cron": "^3.0.0",
     "twitter-api-client": "^1.5.1"
+  },
+  "engines": {
+    "node": "16.13.1"
   }
 }
