@@ -1,11 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { TwitterClient } from "twitter-api-client";
-import http from "http";
+import express from "express";
 import axios from "axios";
 import cron from "node-cron";
 
 import { ApiUrl } from './const/index.js';
+
+const app = express();
 
 let today = new Date().toISOString().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }).slice(0, 10);
 
@@ -36,7 +38,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'sketch',
+        moonStyle: 'default',
       },
       view: {
           type: 'portrait-simple'
@@ -81,14 +83,21 @@ const uploadBanner = async(files) => {
     }
 }
 
-cron.schedule('0 */5 * * * *', () => {
+cron.schedule('* 1 * * *', () => {
     getImageUrl()
 }, {
     scheduled: true,
     timezone: "Asia/Jakarta"
 });
-
-http.createServer((req, res) => {
-    res.send("it is running\n");
-  })
-  .listen(process.env.PORT || 5000);
+ 
+app.get('/', (req, res) => {
+  res
+    .status(200)
+    .send('server is running')
+    .end();
+});
+ 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+});
