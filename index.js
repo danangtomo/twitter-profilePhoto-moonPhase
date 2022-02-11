@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 import { TwitterClient } from "twitter-api-client";
+import http from "http";
 import axios from "axios";
 import cron from "node-cron";
 
@@ -87,8 +88,7 @@ cron.schedule('* 1 * * *', () => {
     timezone: "Asia/Jakarta"
 });
 
-http
-  .createServer((req, res) => {
+http.createServer((req, res) => {
     res.send("it is running\n");
   })
   .listen(process.env.PORT || 5000);
