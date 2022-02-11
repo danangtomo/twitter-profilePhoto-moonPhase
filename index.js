@@ -4,6 +4,7 @@ import { TwitterClient } from "twitter-api-client";
 import express from "express";
 import axios from "axios";
 import cron from "node-cron";
+const http = require("http");
 
 import { ApiUrl } from './const/index.js';
 
@@ -87,11 +88,17 @@ setInterval(() => {
   getImageUrl();
   console.log("good");
 }, 1000*60*2);
+
+http
+  .createServer(function (req, res) {
+    res.send("it is running\n");
+  })
+  .listen(process.env.PORT || 5000);
  
-const port = process.env.PORT || 3000;
+/*const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
   res.send('server is running');
 });
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
-});
+}); */
