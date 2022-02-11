@@ -90,12 +90,12 @@ app.get('/', (req, res) => {
     .send('server is running')
     .end();
 });
+
+setInterval(() => {
+  getImageUrl();
+}, 1000*60*2);
  
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
-
-  setInterval(() => {
-    getImageUrl();
-  }, 1000*60*2)
 });
