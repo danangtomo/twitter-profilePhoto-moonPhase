@@ -83,19 +83,15 @@ const uploadBanner = async(files) => {
     }
 }
 
- 
-app.get('/', (req, res) => {
-  res
-    .status(200)
-    .send('server is running')
-    .end();
-});
-
+getImageUrl();
 setInterval(() => {
   getImageUrl();
 }, 1000*60*2);
  
 const port = process.env.PORT || 3000;
+app.get('/', (req, res) => {
+  res.send('server is running');
+});
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
