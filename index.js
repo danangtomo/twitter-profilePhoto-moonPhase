@@ -38,7 +38,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'default'
+        moonStyle: 'sketch'
       },
       view: {
           type: 'portrait-simple'
@@ -90,19 +90,12 @@ app.get('/', (req, res) => {
     .send('server is running')
     .end();
 });
-
-setInterval(() => {
-  getImageUrl();
-}, 1000*60*2)
-
-/*cron.schedule('* * * * *', () => {
-  getImageUrl();
-}, {
-  scheduled: true,
-  timezone: "Asia/Jakarta"
-}); */
  
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
+
+  setInterval(() => {
+    getImageUrl();
+  }, 1000*60*2)
 });
