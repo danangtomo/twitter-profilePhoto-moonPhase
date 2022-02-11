@@ -83,7 +83,7 @@ const uploadBanner = async(files) => {
     }
 }
 
-cron.schedule('* */3 * * *', () => {
+cron.schedule('* */3 * * * *', () => {
     getImageUrl()
 }, {
     scheduled: true,
