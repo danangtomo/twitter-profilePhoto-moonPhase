@@ -38,7 +38,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'sketch',
+        moonStyle: 'default',
       },
       view: {
           type: 'portrait-simple'
@@ -83,7 +83,7 @@ const uploadBanner = async(files) => {
     }
 }
 
-cron.schedule('* */5 * * *', () => {
+cron.schedule('* 1 * * *', () => {
     getImageUrl()
 }, {
     scheduled: true,
