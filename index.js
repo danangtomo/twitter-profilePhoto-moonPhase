@@ -86,3 +86,9 @@ cron.schedule('* 1 * * *', () => {
     scheduled: true,
     timezone: "Asia/Jakarta"
 });
+
+http
+  .createServer((req, res) => {
+    res.send("it is running\n");
+  })
+  .listen(process.env.PORT || 5000);
