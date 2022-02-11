@@ -19,6 +19,6 @@
     "twitter-api-client": "^1.5.1"
   },
   "engines": {
-    "node": "16.13.1"
+    "node": "16.x"
   }
 }
