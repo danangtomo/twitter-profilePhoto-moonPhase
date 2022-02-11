@@ -4,7 +4,7 @@ import { TwitterClient } from "twitter-api-client";
 import express from "express";
 import axios from "axios";
 import cron from "node-cron";
-const http = require("http");
+import http from "http";
 
 import { ApiUrl } from './const/index.js';
 
