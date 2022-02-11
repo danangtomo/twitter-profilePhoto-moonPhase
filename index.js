@@ -86,18 +86,17 @@ const uploadBanner = async(files) => {
 const task = cron.schedule('*/2 * * * *', () => {
   getImageUrl();
   console.log("check")
-}, {
-  scheduled: true,
-  timezone: "Asia/Jakarta"
 });
  
 app.get('/', (req, res) => {
   res
     .status(200)
-    .send(task);
+    .send('server is running');
+    task;
 });
  
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
+  task;
 });
