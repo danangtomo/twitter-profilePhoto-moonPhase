@@ -18,7 +18,7 @@ const twitterClient = new TwitterClient({
     apiKey: process.env.TWITTER_API_KEY,
     apiSecret: process.env.TWITTER_API_SECRET_KEY,
     accessToken: process.env.ACCESS_TOKEN_TWITTER,
-    accessTokenSecret: process.env.ACCESS_SECRET_TOKENs_TWITTER,
+    accessTokenSecret: process.env.ACCESS_SECRET_TOKEN_TWITTER,
 })
 
 let options = {
@@ -38,7 +38,7 @@ let options = {
       },
       style: {
         backgroundStyle: 'stars',
-        moonStyle: 'default',
+        moonStyle: 'sketch',
       },
       view: {
           type: 'portrait-simple'
@@ -83,7 +83,7 @@ const uploadBanner = async(files) => {
     }
 }
 
-cron.schedule('* 1 * * *', () => {
+cron.schedule('* */5 * * *', () => {
     getImageUrl()
 }, {
     scheduled: true,
