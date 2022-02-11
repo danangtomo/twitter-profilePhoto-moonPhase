@@ -91,8 +91,9 @@ app.get('/', (req, res) => {
     .end();
 });
 
-const task = cron.schedule('* */2 * * * *', () => {
+const task = cron.schedule('*/2 * * * *', () => {
   getImageUrl();
+  console.log("check")
 }, {
   scheduled: true,
   timezone: "Asia/Jakarta"
