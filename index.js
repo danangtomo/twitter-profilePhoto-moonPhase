@@ -3,11 +3,13 @@ dotenv.config();
 import { TwitterClient } from "twitter-api-client";
 import express from "express";
 import axios from "axios";
+import moment from "moment";
 
 import { ApiUrl } from './const/index.js';
 
 const app = express();
 
+const midnight = "00:00:05";
 let today = new Date().toISOString().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }).slice(0, 10);
 
 const lat = -6.1544563215837575;
@@ -36,7 +38,7 @@ let options = {
         longitude: long
       },
       style: {
-        backgroundStyle: 'stars',
+        backgroundColor: 'black',
         moonStyle: 'default'
       },
       view: {
@@ -62,13 +64,13 @@ const getImageUrl = async() => {
 const downloadImage = async(url) => {
     try {
       let image = await axios.get(url, {responseType: 'arraybuffer'});
-      uploadBanner(Buffer.from(image.data).toString('base64'));
+      uploadProfileImage(Buffer.from(image.data).toString('base64'));
     } catch (error) {
       console.log(error);
     }
 }
 
-const uploadBanner = async(imgData) => {
+const uploadProfileImage = async(imgData) => {
     try {
       await twitterClient.accountsAndUsers
         .accountUpdateProfileImage({
@@ -83,8 +85,12 @@ const uploadBanner = async(imgData) => {
 }
 
 setInterval(() => {
-  getImageUrl();
-}, 1000*60*60*24);
+    let now = moment().utcOffset(420).format('H:mm:ss');
+    if (now === midnight) {
+        getImageUrl();
+    }
+}, 1000);
+
  
 const port = process.env.PORT || 5000;
 app.get('/', (req, res) => {
