@@ -17,6 +17,10 @@ Simple Node JS script to change twitter profile photo automatically, according t
     "npm": "<YOUR_VERSION>"
   }
 ```
+- Change to your local time, ex: GMT+7 = 420, 420 is the result 60 * 7
+```javascript
+utcOffset(420)
+```
 - If you want to run on local, type the command `npm start`
 
 ## .env Setup (Local)
