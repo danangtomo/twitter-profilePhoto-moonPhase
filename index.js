@@ -91,7 +91,7 @@ setInterval(() => {
     if (now === midnight) {
         getImageUrl();
     }
-}, 2000);
+}, 1000);
 
  
 const port = process.env.PORT || 5000;
