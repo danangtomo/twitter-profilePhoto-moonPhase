@@ -10,7 +10,9 @@ import { ApiUrl } from './const/index.js';
 const app = express();
 
 const midnight = "00:00:05";
-let today = new Date().toISOString().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }).slice(0, 10);
+let getLocalDateData = moment().utcOffset(420);
+let today = getLocalDateData.format('YYYY-MM-DD')
+
 
 const lat = -6.1544563215837575;
 const long = 106.56163066770489;
@@ -39,7 +41,7 @@ let options = {
       },
       style: {
         moonStyle: 'default',
-        backgroundStyle: 'stars',
+        backgroundStyle: 'stars'
       },
       view: {
           type: 'portrait-simple'
@@ -85,11 +87,11 @@ const uploadProfileImage = async(imgData) => {
 }
 
 setInterval(() => {
-    let now = moment().utcOffset(420).format('H:mm:ss');
+    let now = moment().utcOffset(420).format('HH:mm:ss');
     if (now === midnight) {
         getImageUrl();
     }
-}, 1000);
+}, 2000);
 
  
 const port = process.env.PORT || 5000;
