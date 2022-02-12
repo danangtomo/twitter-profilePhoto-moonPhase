@@ -4,10 +4,10 @@ Simple Node JS script to change twitter profile photo automatically, according t
 ## THINGS YOU SHOULD DO
 
 - Register an account at [Twitter Developer Platform](https://developer.twitter.com/) to get API access and ensure the project has **Elevated Access**.
-- Register an account at https://rapidapi.com/ to get API access for moon images.
+- Register an account at [Rapid Api](https://rapidapi.com/) to get API access for moon images.
 - Clone this repository using `git clone https://github.com/danangtomo/twitter-profilePhoto-moonPhase.git`.
 - After finished cloning, run command `npm i` to install all dependencies
-- Create an account at https://heroku.com/ and connect to your project repository to deploy your server.
+- Create an account at [Heroku](https://heroku.com/) and connect to your project repository to deploy your server.
 - Create `.env` file in your local project
 - Access your `https://dashboard.heroku.com/apps/<PROJECT_NAME>/settings` page and in the Config Vars section, click on `Reveal Config Vars` then fill it with the values of the `.env` file contained in your local project. If the value is string, for example `"blabla"` just fill it with `blabla` without quotes
 - In the `package.json` file, adjust the contents of the node and npm keys with the version you are using
