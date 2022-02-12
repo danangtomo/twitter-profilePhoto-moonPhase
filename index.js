@@ -38,8 +38,8 @@ let options = {
         longitude: long
       },
       style: {
-        backgroundColor: 'black',
-        moonStyle: 'default'
+        moonStyle: 'default',
+        backgroundStyle: 'stars',
       },
       view: {
           type: 'portrait-simple'
