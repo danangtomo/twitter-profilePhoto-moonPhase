@@ -99,6 +99,6 @@ const port = process.env.PORT || 5000;
     app.get('/', (req, res) => {
       res.send('server is running');
     });
-  })
-  
+  }, 1000 * 60 * 30)
+
   app.listen(port);
