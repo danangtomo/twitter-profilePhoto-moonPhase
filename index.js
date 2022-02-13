@@ -96,7 +96,7 @@ setInterval(() => {
  
 const port = process.env.PORT || 5000;
 setInterval(() => {
-  if(now === "02:55:00") {
+  if(now === "03:30:00") {
     app.get('/', (req, res) => {
       res.send('server is running');
     });
