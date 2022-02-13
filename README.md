@@ -22,6 +22,7 @@ Simple Node JS script to change twitter profile photo automatically, according t
 utcOffset(420)
 ```
 - If you want to run on local, type the command `npm start`
+- Register an account at [Uptimerobot](https://uptimerobot.com/) to send a request to the server and set the time every 60 minutes
 
 ## .env Setup (Local)
 ```sh
