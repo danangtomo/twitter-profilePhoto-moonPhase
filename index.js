@@ -9,10 +9,9 @@ import { ApiUrl } from './const/index.js';
 
 const app = express();
 
-const midnight = "00:50:05";
+const midnight = "00:00:05";
 let getLocalDateData = moment().utcOffset(420);
 let today = getLocalDateData.format('YYYY-MM-DD')
-
 
 const lat = -6.1544563215837575;
 const long = 106.56163066770489;
@@ -89,15 +88,16 @@ const uploadProfileImage = async(imgData) => {
 setInterval(() => {
     let now = moment().utcOffset(420).format('HH:mm:ss');
     console.log(now)
-    console.log(today)
     if (now === midnight) {
-        getImageUrl();
+        //getImageUrl();
     }
 }, 1000);
 
  
 const port = process.env.PORT || 5000;
-app.get('/', (req, res) => {
-  res.send('server is running');
-});
-app.listen(port);
+setInterval(() => {
+  app.get('/', (req, res) => {
+    res.send('server is running');
+  });
+  app.listen(port);
+}, 1000 * 60 * 30)
