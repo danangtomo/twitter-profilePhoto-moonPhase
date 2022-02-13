@@ -95,10 +95,7 @@ setInterval(() => {
 
  
 const port = process.env.PORT || 5000;
-const request = () => {
   app.get('/', (req, res) => {
     res.send('server is running');
   });
   app.listen(port);
-}
-setInterval(request, 1000 * 60 * 30)
