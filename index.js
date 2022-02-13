@@ -10,6 +10,8 @@ import { ApiUrl } from './const/index.js';
 const app = express();
 
 const midnight = "00:00:05";
+const upServer = "23:45:00";
+let now = moment().utcOffset(420).format('HH:mm:ss');
 let getLocalDateData = moment().utcOffset(420);
 let today = getLocalDateData.format('YYYY-MM-DD')
 
@@ -86,19 +88,18 @@ const uploadProfileImage = async(imgData) => {
 }
 
 setInterval(() => {
-    let now = moment().utcOffset(420).format('HH:mm:ss');
-    console.log(now)
-    if (now === midnight) {
+    if(now === midnight) {
         getImageUrl();
     }
 }, 1000);
 
  
 const port = process.env.PORT || 5000;
-  setInterval(() => {
+setInterval(() => {
+  if(now === "02:55:00") {
     app.get('/', (req, res) => {
       res.send('server is running');
     });
-  }, 1000 * 60 * 30)
-
-  app.listen(port);
+  }
+}, 1000)
+app.listen(port);
