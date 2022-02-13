@@ -89,7 +89,7 @@ setInterval(() => {
     let now = moment().utcOffset(420).format('HH:mm:ss');
     console.log(now)
     if (now === midnight) {
-        //getImageUrl();
+        getImageUrl();
     }
 }, 1000);
 
