@@ -9,8 +9,7 @@ import { ApiUrl } from './const/index.js';
 
 const app = express();
 
-const midnight = "00:10:00";
-let now = moment().utcOffset(420).format('HH:mm:ss');
+const midnight = "00:20:00";
 let getLocalDateData = moment().utcOffset(420);
 let today = getLocalDateData.format('YYYY-MM-DD')
 
@@ -87,6 +86,7 @@ const uploadProfileImage = async(imgData) => {
 }
 
 setInterval(() => {
+  let now = moment().utcOffset(420).format('HH:mm:ss');
     if(now === midnight) {
         getImageUrl();
     }
