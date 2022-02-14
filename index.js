@@ -9,7 +9,7 @@ import { ApiUrl } from './const/index.js';
 
 const app = express();
 
-const midnight = "00:20:00";
+const midnight = "00:25:00";
 let getLocalDateData = moment().utcOffset(420);
 let today = getLocalDateData.format('YYYY-MM-DD')
 
@@ -94,7 +94,6 @@ setInterval(() => {
 
  
 const port = process.env.PORT || 5000;
-
 app.get('/', (req, res) => {
   res.send('server is running');
 });
