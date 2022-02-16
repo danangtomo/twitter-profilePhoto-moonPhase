@@ -9,7 +9,7 @@ import { ApiUrl } from './const/index.js';
 
 const app = express();
 
-const midnight = "01:15:00";
+const midnight = "01:25:00";
 let getLocalDateData = moment().utcOffset(420);
 let today = getLocalDateData.format('YYYY-MM-DD')
 
