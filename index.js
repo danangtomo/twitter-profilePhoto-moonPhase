@@ -9,7 +9,7 @@ import { ApiUrl } from './const/index.js';
 
 const app = express();
 
-const midnight = "01:25:00";
+const midnight = "01:35:00";
 let getLocalDateData = moment().utcOffset(420);
 let today = getLocalDateData.format('YYYY-MM-DD')
 
@@ -34,7 +34,7 @@ let options = {
     data: {
       format: 'png',
       observer: {
-        date: "2022-02-16", 
+        date: today, 
         latitude: lat, 
         longitude: long
       },
