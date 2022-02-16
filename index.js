@@ -34,7 +34,7 @@ let options = {
     data: {
       format: 'png',
       observer: {
-        date: 2022-02-16, 
+        date: "2022-02-16", 
         latitude: lat, 
         longitude: long
       },
