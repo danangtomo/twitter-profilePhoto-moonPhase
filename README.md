@@ -17,9 +17,9 @@ Simple Node JS script to change twitter profile photo automatically, according t
     "npm": "<YOUR_VERSION>"
   }
 ```
-- Change to your local time, ex: GMT+7 = 420, 420 is the result 60 * 7.
+- Change to your local time.
 ```javascript
-utcOffset(420)
+moment.utc().tz("Asia/Jakarta");
 ```
 - If you want to run on local, type the command `npm start`.
 - Register an account at [Uptimerobot](https://uptimerobot.com/) to send a request to the server and set the time every 5 minutes.
@@ -48,5 +48,5 @@ Sometimes the profile photo change process fails one day. This is caused by the 
 | `axios` |
 | `dotenv` | 
 | `express` | 
-| `moment` | 
+| `moment-timezone` | 
 | `twitter-api-client` | 
