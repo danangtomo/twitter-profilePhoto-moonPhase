@@ -3,15 +3,15 @@ dotenv.config();
 import { TwitterClient } from "twitter-api-client";
 import express from "express";
 import axios from "axios";
-import moment from "moment";
+import moment from "moment-timezone";
 
 import { ApiUrl } from './const/index.js';
 
 const app = express();
 
 const midnight = "01:35:00";
-let getLocalDateData = moment().utcOffset(420);
-let today = getLocalDateData.format('YYYY-MM-DD')
+let getLocalDateData = moment.utc().tz("Asia/Jakarta");
+let today = getLocalDateData.format('YYYY-MM-DD');
 
 const lat = -6.1544563215837575;
 const long = 106.56163066770489;
@@ -86,10 +86,11 @@ const uploadProfileImage = async(imgData) => {
 }
 
 setInterval(() => {
-  let now = moment().utcOffset(420).format('HH:mm:ss');
+  let now = getLocalDateData.format('HH:mm:ss');
     if(now === midnight) {
         getImageUrl();
     }
+    console.log(today)
 }, 1000);
 
  
