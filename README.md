@@ -1,7 +1,7 @@
 # TWITTER-PROFILE-PHOTO-MOON-PHASE
 Simple Node JS script to change twitter profile photo automatically, according to the actual moon phase.
 
-### HOW
+### Things You should do
 
 - Register an account at [Twitter Developer Platform](https://developer.twitter.com/) to get API access and ensure the project has **Elevated Access**.
 - Register an account at [Rapid Api](https://rapidapi.com/) to get API access for moon images.
@@ -30,6 +30,8 @@ ACCESS_SECRET_TOKEN_TWITTER="<YOUR_KEY>"
 
 API_KEY="<YOUR_KEY>"
 API_HOST="astronomy.p.rapidapi.com"
+
+```
 
 
 ### Dependencies
