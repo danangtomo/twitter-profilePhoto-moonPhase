@@ -9,7 +9,7 @@ import { ApiUrl } from './const/index.js';
 
 const app = express();
 
-const night = "19:00:00";
+const atTime = "06:49:00";
 let getLocalDateData = moment.utc().tz("Asia/Jakarta");
 let today = getLocalDateData.format('YYYY-MM-DD');
 
@@ -28,8 +28,8 @@ let options = {
     url: ApiUrl,
     headers: {
         'content-type': 'application/json',
-        'x-rapidapi-host': process.env.API_HOST,
-        'x-rapidapi-key': process.env.API_KEY
+        'X-RapidAPI-Key': process.env.API_KEY,
+        'X-RapidAPI-Host': process.env.API_HOST
     },
     data: {
       format: 'png',
@@ -88,7 +88,7 @@ const uploadProfileImage = async(imgData) => {
 setInterval(() => {
   let exactTime = moment.utc().tz("Asia/Jakarta");
   let now = exactTime.format('HH:mm:ss');
-    if(now === night) {
+    if(now === atTime) {
         getImageUrl();
     }
 }, 1000);
